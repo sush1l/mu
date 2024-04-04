@@ -1,0 +1,100 @@
+ <div class="container-fluid">
+  <div class="col-md-12">
+    <div class="row" style="padding: 5px;">
+      <div class="col-md-12 ">
+        <!--tab start-->
+<div class="well-heading" style="position: relative; text-align:center; font-size:20px;">
+
+{{__('Notices')}}<span class="btn-link"><a href="news" class="btn btn-primary btn-xs" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i> {{__('View More')}}</a></span>
+
+</div>
+<style>
+  *:not(.fa) {
+    font-family: kalimati !important;
+}
+.img-fluid {
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+}
+figure {
+    margin: 0 0 0rem;
+}
+@media (min-width: 0)
+.g-py-10 {
+    padding-top: 0.71429rem !important;
+    padding-bottom: 0.71429rem !important;
+}
+@media (min-width: 0)
+.g-px-15 {
+    padding-left: 1.07143rem !important;
+    padding-right: 1.07143rem !important;
+}
+.g-top-20 {
+    top: 1.42857rem;
+}
+.g-pos-abs {
+    position: absolute !important;
+}
+.g-line-height-1_2 {
+    line-height: 1.2 !important;
+}
+.g-bg-primary-opacity-0_8 {
+    background-color: #004A89 !important;
+    width: 100px;;
+}
+.text-uppercase {
+    text-transform: uppercase!important;
+}
+.text-center {
+    text-align: center!important;
+}
+.mb-1, .my-1 {
+    margin-bottom: .25rem!important;
+}
+.mt-1, .my-1 {
+    margin-top: .25rem!important;
+}
+.g-color-white {
+    color: #fff !important;
+}
+</style>
+<section class="tab ">
+
+  <div class="row" style="padding:12px;">
+    @foreach($notice as $notice)
+    <div class="col-lg-4 g-mb-30">
+<!-- Article -->
+
+<article class="g-bg-white">
+
+<figure class="g-pos-rel">
+<a href="{{$notice->notice_description}}"><img class="img-fluid w-100" src="{{asset('storage/assets/notice/'.$notice->notice_file)}}" alt=""></a>
+<figcaption class="text-uppercase text-center g-line-height-1_2 g-bg-primary-opacity-0_8 g-color-white g-pos-abs g-top-20 g-px-15 g-py-10">
+    <strong class="d-block">{{$notice->notice_date}}</strong>
+    
+</figcaption>
+</figure>
+
+<div class="g-pa-30">
+<h3 class="h5 g-mb-15">
+    <a class="u-link-v5 g-color-gray-dark-v2 g-color-primary--hover"  href="{{asset('storage/assets/notice/'.$notice->notice_file)}}" target="_blank">{{$notice->notice_name}}</a>
+</h3>
+
+
+
+
+</div>
+</article>
+
+<!-- End Article -->
+</div>
+ @endforeach  
+
+</section>
+
+<!--tab end-->             </div>
+
+</div>
+    </div>
+  </div>
