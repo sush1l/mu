@@ -56,7 +56,8 @@ class FrontendController extends BaseController
 
             $galleries = PhotoGallery::with('photos')->latest()->get();
             $subDivisions = SubDivision::latest()->get();
-            return view('frontend.index', compact('officeDetail', 'tickerFiles', 'sliders', 'categories', 'galleries', 'subDivisions'));
+            $employees =Employee::orderby('position')->get();
+            return view('frontend.index', compact('officeDetail', 'tickerFiles', 'sliders', 'categories', 'galleries', 'subDivisions', 'employees'));
         } else {
             $officeDetail = OfficeDetail::whereShowOnIndex(1)->whereType('Introduction')->first();
             $tickerFiles = Document::whereMarkAsNew(1)->orderBy('published_date')->get();
@@ -78,8 +79,8 @@ class FrontendController extends BaseController
                 ->get();
             $noticePopups = Document::with('files')->where('popUp', 1)->get();
             $galleries = PhotoGallery::with('photos')->latest()->get();
-
-            return view('frontend.index', compact('officeDetail', 'tickerFiles', 'sliders', 'categories', 'galleries', 'noticePopups'));
+            $employees =Employee::orderby('position')->get();
+            return view('frontend.index', compact('officeDetail', 'tickerFiles', 'sliders', 'categories', 'galleries', 'noticePopups', 'employees'));
         }
 
     }

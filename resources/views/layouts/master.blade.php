@@ -126,11 +126,8 @@
             </div>
         </div>
     </div>
-
-    @include('frontend.partials.nav')
-
 </header>
-
+@include('frontend.partials.nav')
 @yield('content')
 
 @include('frontend.partials.footer')
@@ -140,7 +137,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 <script src="{{ asset('assets/frontend/js/app.js') }}"></script>
-
+<script src="{{ asset('assets/frontend/js/slick.js') }}"></script>
+<script src='https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/slick.js' type='text/javascript'></script>
 @stack('script')
 <script>
     document.addEventListener("DOMContentLoaded", function(){
