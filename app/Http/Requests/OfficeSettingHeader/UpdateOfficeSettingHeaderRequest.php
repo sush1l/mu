@@ -16,9 +16,8 @@ class UpdateOfficeSettingHeaderRequest extends FormRequest
     public function rules()
     {
         return [
-
-            'english' => ['required', 'string', 'max:255'],
-            'nepali' => ['required', 'string', 'max:255'],
+            'english' => ['required', 'string'],
+            'nepali' => ['required', 'string'],
             'font_color' => ['required'],
             'font' => ['required'],
             'font_size' => ['required'],

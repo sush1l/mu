@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactMessageRequest;
 use App\Models\Bill;
 use App\Models\ContactMessage;
+use App\Models\Course;
 use App\Models\Document;
 use App\Models\DocumentCategory;
 use App\Models\Employee;
@@ -80,7 +81,8 @@ class FrontendController extends BaseController
             $noticePopups = Document::with('files')->where('popUp', 1)->get();
             $galleries = PhotoGallery::with('photos')->latest()->get();
             $employees =Employee::orderby('position')->get();
-            return view('frontend.index', compact('officeDetail', 'tickerFiles', 'sliders', 'categories', 'galleries', 'noticePopups', 'employees'));
+            $courses = Course::latest()->get();
+            return view('frontend.index', compact('officeDetail', 'tickerFiles', 'sliders', 'categories', 'galleries', 'noticePopups', 'employees', 'courses'));
         }
 
     }
@@ -137,6 +139,10 @@ class FrontendController extends BaseController
         switch ($slug) {
             case 'contactUs':
                 return view('frontend.contact');
+                break;
+            case 'course':
+                $courses = Course::latest()->get();
+                return view('frontend.curose', compact('courses'));
                 break;
             case 'photoGallery':
                 $photoAlbums = PhotoGallery::with('photos')->latest()->get();

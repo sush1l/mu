@@ -110,6 +110,10 @@ class PermissionSeeder extends Seeder
             ['title' => "ex_employee_create"],
             ['title' => "ex_employee_edit"],
             ['title' => "ex_employee_delete"],
+            ['title' => "course_access"],
+            ['title' => "course_create"],
+            ['title' => "course_edit"],
+            ['title' => "course_delete"],
 
         ];
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\{BillController,
     ChatController,
     ColorController,
     ContactMessageController,
+    CourseController,
     DashboardController,
     DepartmentController,
     DesignationController,
@@ -93,6 +94,7 @@ Route::prefix('gallery')->group(function () {
 Route::resource('faq', FaqController::class);
 //link
 Route::resource('link', LinkController::class);
+Route::resource('course', CourseController::class);
 Route::resource('bill', BillController::class);
 //file Deletes
 Route::resource('file', FileController::class)->only('destroy');

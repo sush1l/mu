@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
     <link
         rel="shortcut icon"
         href="{{asset('assets/backend/images/np.png')}}"
@@ -27,18 +29,18 @@
     <div class="sub-header-card d-none d-sm-block">
         <div class="row">
             <div class="col-md-6">
-{{--                <div class="sub-header-dt-card">--}}
-{{--                    <p>--}}
-{{--                        <span class="date-text">--}}
-{{--                            <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0"--}}
-{{--                                    allowtransparency="true"--}}
-{{--                                    src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=000&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=741198k444"--}}
-{{--                                    width="308" height="25">--}}
+                <div class="sub-header-dt-card">
+                    <p>
+                        <span class="date-text">
+                            <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0"
+                                    allowtransparency="true"
+                                    src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=000&aj_time=yes&font_size=14&line_brake=0&bikram_sambat=0&api=741198k444"
+                                    width="308" height="25">
 
-{{--                            </iframe>--}}
-{{--                        </span>--}}
-{{--                    </p>--}}
-{{--                </div>--}}
+                            </iframe>
+                        </span>
+                    </p>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="header-navbar-language">
@@ -97,13 +99,13 @@
                     <div class="right">
                         <div class="d-flex justify-content-between">
                             <div class="sub-header-dt-card">
-                                <i class="fa fa-envelope fw-bold"><a class="text-black" href="tel:+61411688798, +61401435959">
-                                        info@gmail.com</a></i>
+                                <i class="fa fa-envelope fw-bold"><a class="text-black" href="{{ $header->office_email }}">
+                                        {{ $header->office_email }}</a></i>
 
                             </div>
                             <div class="sub-header-dt-card">
-                                <i class="fa fa-phone fw-bold"><a class="text-black" href="tel:+61411688798, +61401435959">
-                                        +61411688798, +61401435959</a></i>
+                                <i class="fa fa-phone fw-bold"><a class="text-black" href="{{ $header->office_phone }}">
+                                        {{ $header->office_phone }}</a></i>
 
                             </div>
                             <div class="social-media">
@@ -138,7 +140,8 @@
         crossorigin="anonymous"></script>
 <script src="{{ asset('assets/frontend/js/app.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/slick.js') }}"></script>
-<script src='https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/slick.js' type='text/javascript'></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 @stack('script')
 <script>
     document.addEventListener("DOMContentLoaded", function(){
@@ -181,6 +184,15 @@
         document.documentElement.scrollTop = 0;
     }
 </script>
+<script>
+    $(".slider").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000, //2000ms = 2s;
+        autoplayHoverPause: true,
+    });
+</script>
+
 </body>
 
 </html>

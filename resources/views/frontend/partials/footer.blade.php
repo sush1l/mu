@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h6 class="footer-title mb-3">{{__('Important Links')}}</h6>
+                    <h6 class="footer-title mb-3">Useful Links</h6>
                     <div class="home-contact-card">
                         <ul>
                             @foreach ($sharedLinks as $link)
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h6 class="footer-title mb-3">{{__('Our Map')}}</h6>
+                    <h6 class="footer-title mb-3">Our Maps</h6>
                     <div class="textwidget links">
                         <iframe src="{{$header->map_iframe}}" width="100%" height="250" style="border:0;"
                                 allowfullscreen="" loading="lazy"></iframe>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
                     <h6 class="footer-title mb-3">
-                        {{__('Contacts')}}
+                        Contact Us
                     </h6>
                     <h6 class="text-white text-bold">
                         @if(request()->language=='en')
@@ -72,7 +72,8 @@
     <div class="footer-copyright-base" style="background-color: {{$colors->footer}}">
         <div class="container footer-copyright">
             <span>Copyright © {{ $header->office_name ?? ''}}</span>
-            <span>Last Updated: {{config('app.date')}}</span>
+{{--            <span>Last Updated: {{config('app.date')}}</span>--}}
+            <span>Last Updated: 2080-12-10</span>
             <span>Visitors: {{$totalVisitors}}</span>
             <span>Developed By:
                 <a href="https://ninjainfosys.com" target="_blank">Ninja Infosys</a>

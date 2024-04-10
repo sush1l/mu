@@ -9,7 +9,7 @@
         </nav>
     </div>
     <div class="container-fluid mt-2">
-        <div class="well-heading" style="border-left: 10px solid #b31b1b; position: relative;background-color: {{$colors->nav}};">
+        <div class="well-heading" style=" position: relative;background-color: {{$colors->nav}};">
             <i class="fa fa-users"></i>{{__('Employee details')}}<h6 class="content_title">  <span class="pull-right"></span>
             </h6>
         </div>

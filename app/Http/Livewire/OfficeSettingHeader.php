@@ -56,7 +56,6 @@ class OfficeSettingHeader extends Component
 
     public function save()
     {
-        $this->validate();
 
         DB::transaction(function () {
            $office = OfficeSetting::first();

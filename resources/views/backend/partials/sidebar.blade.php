@@ -84,7 +84,14 @@
                     </a>
                 </li>
             @endcan
-
+                <li class="nav-item {{request()->is('admin/course*') ? 'active': ''}}">
+                    <a href="{{route('admin.course.index')}}">
+                <span class="icon">
+                   <i class="mdi mdi-bookshelf"></i>
+                </span>
+                        <span class="text">पाठ्यक्रम</span>
+                    </a>
+                </li>
             @can('employee_access')
                 {{--Employee--}}
                 <li class="nav-item nav-item-has-children">
