@@ -2,20 +2,20 @@
 @section('content')
     <section class="newsbar-section mt-2">
         <div class="container-fluid">
-            <div class="newsbar-container" style="background-color: {{$colors->scroller}}">
-                <div class="flex-shrink-0 newsbar-title pr-lg-3">{{__('Latest News')}}</div>
+            <div class="newsbar-container" style="background-color: {{ $colors->scroller }}">
+                <div class="flex-shrink-0 newsbar-title pr-lg-3">{{ __('Latest News') }}</div>
                 <div class="d-block jctkr-wrapper jctkr-initialized">
                     <ul class="marquee-list">
                         <marquee onmouseover="stop()" onmouseout="start()">
-                            @foreach($tickerFiles as $tickerFile)
+                            @foreach ($tickerFiles as $tickerFile)
                                 <li>
-                                    <a href="{{route('documentDetail',[$tickerFile->slug,'language'=>$language])}}">
-                                        @if(request()->language=='en')
-                                            {{$tickerFile->title_en}}
+                                    <a href="{{ route('documentDetail', [$tickerFile->slug, 'language' => $language]) }}">
+                                        @if (request()->language == 'en')
+                                            {{ $tickerFile->title_en }}
                                         @else
-                                            {{$tickerFile->title}}
-                                        @endif {{$tickerFile->published_date->toDateString()}}
-                                        <span class="type">{{__('New')}}</span>
+                                            {{ $tickerFile->title }}
+                                        @endif {{ $tickerFile->published_date->toDateString() }}
+                                        <span class="type">{{ __('New') }}</span>
                                     </a>
                                 </li>
                             @endforeach
@@ -31,115 +31,112 @@
                 <div class="col-lg-12 order-1 order-lg-2">
                     <div id="slider" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            @foreach($sliders as $sliderButton)
-                                <button type="button" data-bs-target="#slider"
-                                        data-bs-slide-to="{{$loop->index}}" class="{{$loop->first ? 'active' : ''}}"
-                                        @if($loop->first) aria-current="true" @endif
-                                        aria-label="Slide {{$loop->iteration}}"
-                                ></button>
+                            @foreach ($sliders as $sliderButton)
+                                <button type="button" data-bs-target="#slider" data-bs-slide-to="{{ $loop->index }}"
+                                    class="{{ $loop->first ? 'active' : '' }}"
+                                    @if ($loop->first) aria-current="true" @endif
+                                    aria-label="Slide {{ $loop->iteration }}"></button>
                             @endforeach
                         </div>
                         <div class="carousel-inner">
-                            @foreach($sliders as $slider)
-                                <div class="carousel-item {{$loop->first ? 'active' : ''}}">
-                                    <img src="{{$slider->photo}}" class="d-block w-100 height-455"
-                                         alt="{{$slider->title}}">
+                            @foreach ($sliders as $slider)
+                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                    <img src="{{ $slider->photo }}" class="d-block w-100 height-455"
+                                        alt="{{ $slider->title }}">
                                     <div class="carousel-caption d-none d-md-block">
-                                        @if(request()->language=='en')
-                                            <p>{{$slider->title_en}}</p>
+                                        @if (request()->language == 'en')
+                                            <p>{{ $slider->title_en }}</p>
                                         @else
-                                            <p>{{$slider->title}}</p>
+                                            <p>{{ $slider->title }}</p>
                                         @endif
                                     </div>
                                 </div>
                             @endforeach
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#slider"
-                                data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#slider"
-                                data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                 </div>
-                {{--                <div class="col-lg-3 order-2 order-lg-3">--}}
-                {{--                    <div class="row">--}}
-                {{--                        <div class="col-sm-6 col-lg-12 mt-3 mt-md-0">--}}
-                {{--                            <div class="card-01">--}}
-                {{--                                @if($header->chief_id || $header->information_officer_id)--}}
-                {{--                                    <ul class="list list-01">--}}
-                {{--                                        <li>--}}
-                {{--                                            @if ($header->chief_id)--}}
-                {{--                                                                <div class="avatar avatar-lg">--}}
-                {{--                                                                    <img src="{{$header->chief->photo ?? ''}}"--}}
-                {{--                                                                         alt="{{$header->chief->name ?? ''}}">--}}
-                {{--                                                                </div>--}}
-                {{--                                                                <div class="textbox-01">--}}
-                {{--                                                                    @if(request()->language=='en')--}}
-                {{--                                                                        <h6>{{$header->chief->name_en ?? ''}}</h6>--}}
-                {{--                                                                    @else--}}
-                {{--                                                                        <h6>{{$header->chief->name ?? ''}}</h6>--}}
-                {{--                                                                    @endif--}}
-                {{--                                                                    <p>{{__('Office head')}}</p>--}}
-                {{--                                                                    <p><i class="fa fa-phone"></i> {{$header->chief->phone ?? ''}}</p>--}}
-                {{--                                                                    <p><i class="fa fa-envelope"></i> {{$header->chief->email ?? ''}}--}}
-                {{--                                                                    </p>--}}
-                {{--                                                                </div>--}}
-                {{--                                        </li>--}}
-                {{--                                        @endif--}}
-                {{--                                        @if ($header->information_officer_id)--}}
-                {{--                                            <li>--}}
-                {{--                                                <div class="avatar avatar-lg">--}}
-                {{--                                                    <img src="{{$header->informationOfficer->photo ?? ''}}"--}}
-                {{--                                                         alt="{{$header->informationOfficer->name ?? ''}}">--}}
-                {{--                                                </div>--}}
-                {{--                                                <div class="textbox-01">--}}
-                {{--                                                    @if(request()->language=='en')--}}
-                {{--                                                        <h6>{{$header->informationOfficer->name_en ?? ''}}</h6>--}}
-                {{--                                                    @else--}}
-                {{--                                                        <h6>{{$header->informationOfficer->name ?? ''}}</h6>--}}
-                {{--                                                    @endif--}}
-                {{--                                                    <p>{{__('Information Officer')}}</p>--}}
-                {{--                                                    <p>--}}
-                {{--                                                        <i class="fa fa-phone"></i> {{$header->informationOfficer->phone ?? ''}}--}}
-                {{--                                                    </p>--}}
-                {{--                                                    <p>--}}
-                {{--                                                        <i class="fa fa-envelope"></i> {{$header->informationOfficer->email ?? ''}}--}}
-                {{--                                                    </p>--}}
-                {{--                                                </div>--}}
-                {{--                                            </li>--}}
-                {{--                                        @endif--}}
-                {{--                                    </ul>--}}
-                {{--                                @endif--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                        <div class="col-sm-6 col-lg-12 mt-3">--}}
-                {{--                            <div class="card-01 h-100">--}}
-                {{--                                <h6 class="heading mb-2">--}}
-                {{--                                    @if(request()->language=='en')--}}
-                {{--                                        {{$officeDetail->title_en ?? ''}}--}}
-                {{--                                    @else--}}
-                {{--                                        {{$officeDetail->title ?? ''}}--}}
-                {{--                                    @endif--}}
-                {{--                                </h6>--}}
-                {{--                                <p class="text-withlink">--}}
-                {{--                                    @if(request()->language=='en')--}}
-                {{--                                        {!! Str::words(strip_tags($officeDetail->description_en ?? ''), 50, '...') !!}--}}
-                {{--                                    @else--}}
-                {{--                                        {!! Str::words(strip_tags($officeDetail->description ?? ''), 50, '...') !!}--}}
-                {{--                                    @endif--}}
-                {{--                                    <a class="intro-title"--}}
-                {{--                                       href="{{route('officeDetail',[$officeDetail->slug ?? '','language'=>$language])}}">--}}
-                {{--                                        {{__('View More')}}--}}
-                {{--                                    </a>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
+                {{--                <div class="col-lg-3 order-2 order-lg-3"> --}}
+                {{--                    <div class="row"> --}}
+                {{--                        <div class="col-sm-6 col-lg-12 mt-3 mt-md-0"> --}}
+                {{--                            <div class="card-01"> --}}
+                {{--                                @if ($header->chief_id || $header->information_officer_id) --}}
+                {{--                                    <ul class="list list-01"> --}}
+                {{--                                        <li> --}}
+                {{--                                            @if ($header->chief_id) --}}
+                {{--                                                                <div class="avatar avatar-lg"> --}}
+                {{--                                                                    <img src="{{$header->chief->photo ?? ''}}" --}}
+                {{--                                                                         alt="{{$header->chief->name ?? ''}}"> --}}
+                {{--                                                                </div> --}}
+                {{--                                                                <div class="textbox-01"> --}}
+                {{--                                                                    @if (request()->language == 'en') --}}
+                {{--                                                                        <h6>{{$header->chief->name_en ?? ''}}</h6> --}}
+                {{--                                                                    @else --}}
+                {{--                                                                        <h6>{{$header->chief->name ?? ''}}</h6> --}}
+                {{--                                                                    @endif --}}
+                {{--                                                                    <p>{{__('Office head')}}</p> --}}
+                {{--                                                                    <p><i class="fa fa-phone"></i> {{$header->chief->phone ?? ''}}</p> --}}
+                {{--                                                                    <p><i class="fa fa-envelope"></i> {{$header->chief->email ?? ''}} --}}
+                {{--                                                                    </p> --}}
+                {{--                                                                </div> --}}
+                {{--                                        </li> --}}
+                {{--                                        @endif --}}
+                {{--                                        @if ($header->information_officer_id) --}}
+                {{--                                            <li> --}}
+                {{--                                                <div class="avatar avatar-lg"> --}}
+                {{--                                                    <img src="{{$header->informationOfficer->photo ?? ''}}" --}}
+                {{--                                                         alt="{{$header->informationOfficer->name ?? ''}}"> --}}
+                {{--                                                </div> --}}
+                {{--                                                <div class="textbox-01"> --}}
+                {{--                                                    @if (request()->language == 'en') --}}
+                {{--                                                        <h6>{{$header->informationOfficer->name_en ?? ''}}</h6> --}}
+                {{--                                                    @else --}}
+                {{--                                                        <h6>{{$header->informationOfficer->name ?? ''}}</h6> --}}
+                {{--                                                    @endif --}}
+                {{--                                                    <p>{{__('Information Officer')}}</p> --}}
+                {{--                                                    <p> --}}
+                {{--                                                        <i class="fa fa-phone"></i> {{$header->informationOfficer->phone ?? ''}} --}}
+                {{--                                                    </p> --}}
+                {{--                                                    <p> --}}
+                {{--                                                        <i class="fa fa-envelope"></i> {{$header->informationOfficer->email ?? ''}} --}}
+                {{--                                                    </p> --}}
+                {{--                                                </div> --}}
+                {{--                                            </li> --}}
+                {{--                                        @endif --}}
+                {{--                                    </ul> --}}
+                {{--                                @endif --}}
+                {{--                            </div> --}}
+                {{--                        </div> --}}
+                {{--                        <div class="col-sm-6 col-lg-12 mt-3"> --}}
+                {{--                            <div class="card-01 h-100"> --}}
+                {{--                                <h6 class="heading mb-2"> --}}
+                {{--                                    @if (request()->language == 'en') --}}
+                {{--                                        {{$officeDetail->title_en ?? ''}} --}}
+                {{--                                    @else --}}
+                {{--                                        {{$officeDetail->title ?? ''}} --}}
+                {{--                                    @endif --}}
+                {{--                                </h6> --}}
+                {{--                                <p class="text-withlink"> --}}
+                {{--                                    @if (request()->language == 'en') --}}
+                {{--                                        {!! Str::words(strip_tags($officeDetail->description_en ?? ''), 50, '...') !!} --}}
+                {{--                                    @else --}}
+                {{--                                        {!! Str::words(strip_tags($officeDetail->description ?? ''), 50, '...') !!} --}}
+                {{--                                    @endif --}}
+                {{--                                    <a class="intro-title" --}}
+                {{--                                       href="{{route('officeDetail',[$officeDetail->slug ?? '','language'=>$language])}}"> --}}
+                {{--                                        {{__('View More')}} --}}
+                {{--                                    </a> --}}
+                {{--                            </div> --}}
+                {{--                        </div> --}}
+                {{--                    </div> --}}
+                {{--                </div> --}}
             </div>
         </div>
     </section>
@@ -152,26 +149,27 @@
                         <div class="row g-5">
                             <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
                                 <div class="h-100 position-relative">
-                                    <img src="{{asset('storage/'.$header->cover_photo)}}" class="img-fluid rounded"
-                                         alt="">
+                                    <img src="{{ asset('storage/' . $header->cover_photo) }}" class="img-fluid rounded"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
                                 <h3 class="mb-4">
-                                    @if(request()->language=='en')
-                                        {{$officeDetail->title_en ?? ''}}
+                                    @if (request()->language == 'en')
+                                        {{ $officeDetail->title_en ?? '' }}
                                     @else
-                                        {{$officeDetail->title ?? ''}}
-                                    @endif</h3>
+                                        {{ $officeDetail->title ?? '' }}
+                                    @endif
+                                </h3>
                                 <p style="text-align: justify;">
-                                    @if(request()->language=='en')
+                                    @if (request()->language == 'en')
                                         {!! Str::words(strip_tags($officeDetail->description_en ?? ''), 200, '...') !!}
                                     @else
                                         {!! Str::words(strip_tags($officeDetail->description ?? ''), 200, '...') !!}
                                     @endif
                                 </p>
-                                <a href="{{route('officeDetail',[$officeDetail->slug ?? '','language'=>$language])}}"
-                                   class="btn btn-danger rounded-pill px-3 py-1 text-white">{{__('View More')}}</a>
+                                <a href="{{ route('officeDetail', [$officeDetail->slug ?? '', 'language' => $language]) }}"
+                                    class="btn btn-danger rounded-pill px-3 py-1 text-white">{{ __('View More') }}</a>
                             </div>
                         </div>
                     </div>
@@ -180,23 +178,32 @@
             </div>
         </div>
     </section>
-    <div class="container-fluid mt-5">
-        <div class="row">
-            <div class="parallax overlay">
-                <div class="overlay-content">
-                    <h2 class="text-white mt-0 fw-bold fs-5">{{__('Our Courses')}}</h2>
-                    <h6 class="text-white fw-bold fs-5">{{__('Find Best Courses For Yourself')}}</h6>
-                </div>
-                <div class="slider owl-carousel mt-4" style="margin: 150px;">
+
+
+    <div class="parallax overlay">
+        <div class="container my-3">
+            <div class="overlay-content" style="padding-top: 70px !important;">
+                <h2 class="text-white mt-0 fw-bold fs-5">{{ __('Our Courses') }}</h2>
+                <h6 class="text-white fw-bold fs-5">{{ __('Find Best Courses For Yourself') }}</h6>
+            </div>
+            <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" role="listbox">
                     @foreach ($courses as $course)
-                        <div class="card">
-                            <div class="avatar avatar-lg" style="margin: 0 0 0 70px">
-                                <img src="{{$course->icon ?? ''}}"
-                                     alt="">
-                            </div>
-                            <div class="content text-center" style="margin-left: 0">
-                                <div class="title">
-                                    {{ $course->title }}
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <div class="col-md-3 mx-2 my-2">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="{{ $course->icon ?? '' }}" style="width: 100%" class="img-fluid"
+                                            alt="Image">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-caption d-md-block" style="color: black;">
+                                        @if (request()->language == 'en')
+                                            {{ $course->title_en }}
+                                        @else
+                                            {{ $course->title }}
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -205,82 +212,94 @@
             </div>
         </div>
     </div>
-    @include('frontend.index.document')
-    {{--    <div data-aos="fade-up" class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">--}}
-    {{--    <div class="container">--}}
-    {{--        <div class="text-center" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">--}}
-    {{--            <h5 class="section bg-intro text-center text-color px-3 mb-4">Members</h5>--}}
-    {{--            --}}{{-- <h1 class="mb-3">{{ __('Photos') }}</h1> --}}
-    {{--        </div>--}}
-    {{--        <div data-aos="fade-up" class="Container">--}}
-    {{--            <h3 class="Head">Member<span class="Arrows"></span></h3>--}}
-    {{--            <!-- Carousel Container -->--}}
-    {{--            <div class="SlickCarousel slick-initialized slick-slider">--}}
-    {{--                <!-- Item -->--}}
-    {{--                @foreach ($employees as $employee)--}}
-    {{--                    <div class="ProductBlock">--}}
-    {{--                        <div class="Content">--}}
-    {{--                            <div class="img-fill">--}}
-    {{--                                <img src="{{ $employee->photo }}">--}}
-    {{--                            </div>--}}
-    {{--                            <h3>{{ $employee->title }}</h3>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                @endforeach--}}
-    {{--                <!-- Item -->--}}
-    {{--            </div>--}}
-    {{--            <!-- Carousel Container -->--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
 
-    <div class="container-fluid">
-        <div class="well-heading fw-bold fs-5" style="position: relative;background-color: #2b6eb5;">
-            {{__('Our Staff')}}
-            <h6 class="content_title"><span class="pull-right"></span></h6>
-        </div>
-        <div class="change">
-            <div class="slider owl-carousel mt-2">
-                @foreach ($employees as $employee)
-                    <div class="card">
-                        <div class="avatar avatar-lg">
-                            <img src="{{$employee->photo ?? ''}}"
-                                 alt="">
-                        </div>
-                        <div class="content">
-                            <div class="title">
-                                {{ $employee->name }}
+
+    {{-- <div class="parallax overlay">
+        <div class="container my-3">
+            <div class="overlay-content" style="padding-top: 70px !important;">
+                <h2 class="text-white mt-0 fw-bold fs-5">{{ __('Our Courses') }}</h2>
+                <h6 class="text-white fw-bold fs-5">{{ __('Find Best Courses For Yourself') }}</h6>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach ($courses as $course)
+                    <div class="carousel-item active">
+                        <div class="cards-wrapper">
+                            <div class="card">
+                                <div class="image-wrapper">
+                                    <img src="{{ $course->icon ?? '' }}" style="width: 100%" class="img-fluid"
+                                    alt="Image">
+                                </div>
+                                <div class="carousel-caption d-md-block" style="color: black;">
+                                    @if (request()->language == 'en')
+                                        {{ $course->title_en }}
+                                    @else
+                                        {{ $course->title }}
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
+    </div> --}}
 
+
+    @include('frontend.index.document')
+
+
+    <section class="gallery-section mt-2">
+    <div class="Container-fluid">
+        <div class="well-heading fw-bold fs-5" style="position: relative;background-color: #2b6eb5;">
+            {{ __('Our Staff') }}
+            <h6 class="content_title"><span class="pull-right"></span></h6>
+        </div>
+        <!-- Carousel Container -->
+        <div class="SlickCarousel">
+            <!-- Item -->
+            @foreach ($employees as $employee)
+                <div class="ProductBlock">
+                    <div class="Content">
+                        <div class="img-fill">
+                            <img src="{{ $employee->photo ?? '' }}">
+                        </div>
+                        <h3>{{ $employee->name }}</h3>
+                    </div>
+                </div>
+            @endforeach
+            <!-- Item -->
+        </div>
+        <!-- Carousel Container -->
     </div>
+    </section>
+
 
     <section class="gallery-section mt-2">
         <div class="container-fluid">
             <div class="well-heading fw-bold fs-5" style="position: relative;background-color: #2b6eb5;">
-           {{__('Photo Gallery')}}
+                {{ __('Photo Gallery') }}
                 <h6 class="content_title"><span class="pull-right"></span></h6>
             </div>
             <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
-                    @foreach($galleries as $gallery)
-                        <div class="carousel-item {{$loop->first ? 'active' : ''}}">
+                    @foreach ($galleries as $gallery)
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-img">
-                                        <a href="{{route('photoGalleryDetails',[$gallery->slug,'language'=>$language])}}">
-                                            <img src="{{asset('storage/'.$gallery->photos->first()->images)}}"
-                                                 style="width: 100%" class="img-fluid" alt="Image">
+                                        <a
+                                            href="{{ route('photoGalleryDetails', [$gallery->slug, 'language' => $language]) }}">
+                                            <img src="{{ asset('storage/' . $gallery->photos->first()->images) }}"
+                                                style="width: 100%" class="img-fluid" alt="Image">
                                         </a>
                                     </div>
                                     <div class="carousel-caption d-none d-md-block">
-                                        @if(request()->language=='en')
-                                            {{$gallery ->title_en}}
+                                        @if (request()->language == 'en')
+                                            {{ $gallery->title_en }}
                                         @else
-                                            {{$gallery ->title}}
+                                            {{ $gallery->title }}
                                         @endif
                                     </div>
                                 </div>
@@ -289,11 +308,11 @@
                     @endforeach
                 </div>
                 <a class="carousel-control-prev bg-transparent w-aut" href="#galleryCarousel" role="button"
-                   data-bs-slide="prev">
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </a>
                 <a class="carousel-control-next bg-transparent w-aut" href="#galleryCarousel" role="button"
-                   data-bs-slide="next">
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </a>
             </div>
@@ -319,7 +338,7 @@
 
 
     <!-- Modal -->
-    @if($noticePopups->count()>0)
+    @if ($noticePopups->count() > 0)
         <div class="modal fade" id="noticeModal" tabindex="-1" aria-labelledby="noticeModal" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -328,14 +347,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        @foreach($noticePopups as $noticePopup)
-
-                            @foreach($noticePopup->files as $file)
-                                @if($file->extension=='pdf')
-                                    <iframe src="{{asset('storage/'.$file->url)}}" frameborder="0"
-                                            style="width:100%;height:600px;"></iframe>
+                        @foreach ($noticePopups as $noticePopup)
+                            @foreach ($noticePopup->files as $file)
+                                @if ($file->extension == 'pdf')
+                                    <iframe src="{{ asset('storage/' . $file->url) }}" frameborder="0"
+                                        style="width:100%;height:600px;"></iframe>
                                 @else
-                                    <img src="{{asset('storage/'.$file->url)}}" alt="" style="width:100%;">
+                                    <img src="{{ asset('storage/' . $file->url) }}" alt="" style="width:100%;">
                                 @endif
                                 <hr>
                             @endforeach
@@ -349,14 +367,15 @@
 
     @push('script')
         <script>
-            const myCarousel = document.querySelector('#myCarousel');
-            const carousel = new bootstrap.Carousel(myCarousel, {
+            const galleryCarousel = document.querySelector('#galleryCarousel');
+            
+            const galleryCarouselInstance = new bootstrap.Carousel(galleryCarousel, {
                 interval: 2000,
                 wrap: false,
                 loop: true
             });
-
         </script>
+
         <script>
             let items = document.querySelectorAll('#galleryCarousel .carousel-item')
             items.forEach((el) => {
@@ -372,16 +391,14 @@
                     next = next.nextElementSibling
                 }
             })
-
         </script>
         <script>
-            $(document).ready(function () {
+            $(document).ready(function() {
                 $("#noticeModal").modal("show");
-                setTimeout(function () {
+                setTimeout(function() {
                     $('#noticeModal').modal('hide');
                 }, 10000);
             });
         </script>
-
     @endpush
 @endsection
