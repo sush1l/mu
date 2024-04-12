@@ -113,7 +113,7 @@
                         class="collapse dropdown-nav {{request()->is('admin/employees/*') ? 'show' : ''}}">
                         <li>
                             <a class="{{request()->is('admin/employees/department*') ? 'active' : ''}}"
-                               href="{{route('admin.department.index')}}"> समुह </a>
+                               href="{{route('admin.department.index')}}"> संकाय </a>
                         </li>
                         <li>
                             <a class="{{request()->is('admin/employees/designation*') ? 'active' : ''}}"
@@ -123,10 +123,10 @@
                             <a class="{{request()->is('admin/employees/employee*') ? 'active' : ''}}"
                                href="{{route('admin.employee.index')}}"> कर्मचारीहरु </a>
                         </li>
-                        <li>
-                            <a class="{{request()->is('admin/employees/exEmployee*') ? 'active' : ''}}"
-                               href="{{route('admin.exEmployee.index')}}"> पूर्व कर्मचारीहरु </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a class="{{request()->is('admin/employees/exEmployee*') ? 'active' : ''}}"--}}
+{{--                               href="{{route('admin.exEmployee.index')}}"> पूर्व कर्मचारीहरु </a>--}}
+{{--                        </li>--}}
 
                     </ul>
                 </li>
