@@ -17,8 +17,8 @@ class UpdateCourseRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'title_en' => ['required', 'string'],
-            'description' => ['required', 'string'],
-            'description_en' => ['required', 'string'],
+            'description' => ['nullable', 'string'],
+            'description_en' => ['nullable', 'string'],
             'icon' => ['nullable', 'image', 'mimes:png,jpg,jpeg']
         ];
     }
