@@ -330,7 +330,7 @@
         <div class="row">
             <div class="parallax overlay">
                 <div class="overlay-content">
-                    <h2 class="text-white fw-bold">MU Convocation</h2>
+                    <h2 class="text-white fw-bold">HMC Convocation</h2>
                     <a href="#">
                         <button class="btn text-black">Connect with us</button>
                     </a>
