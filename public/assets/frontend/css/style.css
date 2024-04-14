@@ -319,10 +319,7 @@ body{
     }
 }
 
-p {
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 0;
-}
+
 
 .header-navbar-language {
     text-align: right;
@@ -848,9 +845,6 @@ a {
 .textbox-01 p {
     font-size: .833rem;
 }
-p {
-    font-size: .833rem;
-}
 .intro-title {
     display: inline-block;
     color: #2460b9;
@@ -1002,9 +996,6 @@ p {
     font-family: 'Vesper Libre', serif;
 }
 
-.des, p {
-    font-size: .833rem;
-}
 .text {
     font-size: .7rem;
     color: #858585;
@@ -1341,6 +1332,8 @@ p {
 }
 p{
     text-align: justify;
+    font-family: Mukta,sans-serif !important;
+    font-size: 16px;
 }
 
 
