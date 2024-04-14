@@ -319,8 +319,6 @@ body{
     }
 }
 
-
-
 .header-navbar-language {
     text-align: right;
 }
@@ -1324,7 +1322,7 @@ a {
 
 
 .dropdown-menu{
-    width: 50rem;
+    width: 20rem;
 }
 
 .p-1{
