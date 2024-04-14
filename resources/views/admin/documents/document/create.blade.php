@@ -132,24 +132,24 @@
                             @enderror
                         </div>
 
-                        <div class="input-style-1">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>
-                            @error('description')
-                            <div class="invalid-feedback">
-                                {{$message}}
+                        <div class="col-md-12">
+                            <div class="input-style-1">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="10" class="summernote"></textarea>
+                                @error('description')
+                                <p class="text-danger">{{$message}}</p>
+                                @enderror
                             </div>
-                            @enderror
                         </div>
                         @if(config('default.dual_language'))
-                            <div class="input-style-1">
-                                <label for="description_en">Description English</label>
-                                <textarea name="description_en" id="description_en" cols="30" rows="10" class="form-control @error('description_en') is-invalid @enderror">{{old('description_en')}}</textarea>
-                                @error('description_en')
-                                <div class="invalid-feedback">
-                                    {{$message}}
+                            <div class="col-md-12">
+                                <div class="input-style-1">
+                                    <label for="description_en">Description English</label>
+                                    <textarea name="description_en" id="description_en" cols="30" rows="10" class="summernote"></textarea>
+                                    @error('description_en')
+                                    <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
-                                @enderror
                             </div>
                         @endif
                         <div class="col-12">
@@ -185,6 +185,17 @@
                 ndpMonth: true,
                 ndpYearCount: 20
             })
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.summernote').summernote({
+                    placeholder: 'Description',
+                    tabsize: 2,
+                    height: 300
+                });
+            });
         </script>
     @endpush
 @endsection

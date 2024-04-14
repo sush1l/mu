@@ -1,7 +1,7 @@
 body{
     background-color: #f2f2f2 !important;
     margin: auto;
-    font-family: 'Francois One', sans-serif;
+    font-family: Mukta,sans-serif !important;
     line-height: 1.5;
 }
 .modal {
@@ -806,14 +806,12 @@ img.flag {
     font-weight: 600;
 }
 .avatar-lg img {
-    width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
 }
 .avatar img {
     border-radius: 50%;
-    margin: 10px;
 }
 .card-06 {
     background-color: #fff;
@@ -1330,6 +1328,19 @@ p {
     -moz-osx-font-smoothing: grayscale;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
   }
+
+
+
+.dropdown-menu{
+    width: 50rem;
+}
+
+.p-1{
+    text-align: justify;
+}
+p{
+    text-align: justify;
+}
 
 
 

@@ -194,22 +194,26 @@
             <div id="courseCarousel" class="carousel slide" data-bs-ride="carousel">
                 @foreach ($courses as $course)
                     <div class="carousel-item chan {{ $loop->first ? 'active' : '' }}">
-                        <div class="col-md-3 mx-2 my-2">
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{ $course->icon ?? '' }}" style="width: 100%" class="img-fluid"
-                                         alt="Image">
+                                                <div class="col-md-3 mx-2 my-2">
+                                                    <div class="card">
+                                                        <div class="avatar avatar-lg">
+                                                            <img src="{{$course->icon ?? ''}}"
+                                                                 alt="">
+                                                        </div>
+                                                        <div class="textbox-01 text-center">
+                                                            @if (request()->language == 'en')
+                                                                <h6>{{$course->title ?? ''}}</h6>
+                                                            @else
+                                                                <h6>{{$course->title_en ?? ''}}</h6>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                </div>
-                                <div class="carousel-caption d-md-block" style="color: black;">
-                                    @if (request()->language == 'en')
-                                        {{ $course->title_en }}
-                                    @else
-                                        {{ $course->title }}
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
+
+
+
+
                     </div>
                 @endforeach
             </div>
