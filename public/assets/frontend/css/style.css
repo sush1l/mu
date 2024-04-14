@@ -812,6 +812,7 @@ img.flag {
 }
 .avatar img {
     border-radius: 50%;
+    width: 110px;
 }
 .card-06 {
     background-color: #fff;
