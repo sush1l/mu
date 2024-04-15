@@ -43,7 +43,7 @@
                                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                     <img src="{{ $slider->photo }}" class="d-block w-100 height-455"
                                          alt="{{ $slider->title }}">
-                                    <div class="carousel-caption d-none d-md-block">
+                                    <div class="carousel-caption d-none d-md-block text-center">
                                         @if (request()->language == 'en')
                                             <p>{{ $slider->title_en }}</p>
                                         @else
@@ -194,25 +194,21 @@
             <div id="courseCarousel" class="carousel slide" data-bs-ride="carousel">
                 @foreach ($courses as $course)
                     <div class="carousel-item chan {{ $loop->first ? 'active' : '' }}">
-                                                <div class="col-md-3 mx-2 my-2">
-                                                    <div class="card">
-                                                        <div class="avatar avatar-lg">
-                                                            <img src="{{$course->icon ?? ''}}"
-                                                                 alt="">
-                                                        </div>
-                                                        <div class="textbox-01 text-center">
-                                                            @if (request()->language == 'en')
-                                                                <h6>{{$course->title ?? ''}}</h6>
-                                                            @else
-                                                                <h6>{{$course->title_en ?? ''}}</h6>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-
+                        <div class="col-md-3 mx-2 my-2">
+                            <div class="card">
+                                <div class="avatar avatar-lg">
+                                    <img src="{{$course->icon ?? ''}}"
+                                         alt="">
+                                </div>
+                                <div class="textbox-01 text-center">
+                                    @if (request()->language == 'en')
+                                        <h6>{{$course->title ?? ''}}</h6>
+                                    @else
+                                        <h6>{{$course->title_en ?? ''}}</h6>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 @endforeach
