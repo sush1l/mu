@@ -45,9 +45,9 @@
                                          alt="{{ $slider->title }}">
                                     <div class="carousel-caption d-none d-md-block text-center">
                                         @if (request()->language == 'en')
-                                            <p>{{ $slider->title_en }}</p>
+                                            <span>{{ $slider->title_en }}</span>
                                         @else
-                                            <p>{{ $slider->title }}</p>
+                                            <span>{{ $slider->title }}</span>
                                         @endif
                                     </div>
                                 </div>
