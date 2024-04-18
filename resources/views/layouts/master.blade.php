@@ -73,12 +73,12 @@
     <div class="container-fluid"  style="background-image: url({{asset('storage/'.$header->background_img)}});">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="header-middle-left">
                         <div class="d-flex align-items-center">
                             <a href="#">
                                 <img src="{{ asset('storage/'.$header->en_header) }}" id="header_image"
-                                     style="height: 80px;margin: 10px;">
+                                     style="height: 100px;margin: 10px;">
                             </a>
                             <div>
                                 @foreach($officeSettingHeaders as $officeSettingHeader)
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="right">
                         <div class="d-flex justify-content-between">
                             <div class="sub-header-dt-card">
