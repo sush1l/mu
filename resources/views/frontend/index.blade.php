@@ -194,7 +194,7 @@
             <div id="courseCarousel" class="carousel slide" data-bs-ride="carousel">
                 @foreach ($courses as $course)
                     <div class="carousel-item chan {{ $loop->first ? 'active' : '' }}">
-                        <div class="col-md-3 my-2">
+                        <div class="col-md-3 mx-1 my-2">
                             <div class="card">
                                 <div class="avatar avatar-lg">
                                     <img src="{{$course->icon ?? ''}}"
