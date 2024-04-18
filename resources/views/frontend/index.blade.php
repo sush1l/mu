@@ -331,7 +331,7 @@
             <div class="parallax overlay">
                 <div class="overlay-content">
                     <h2 class="text-white fw-bold">HMC Convocation</h2>
-                    <a href="#">
+                    <a href="https://hsmc.edu.np/detail/contactUs?language=ne">
                         <button class="btn text-black">Connect with us</button>
                     </a>
                 </div>
